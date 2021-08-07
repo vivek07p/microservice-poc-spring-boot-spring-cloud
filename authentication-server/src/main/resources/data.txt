@@ -1,0 +1,25 @@
+ INSERT INTO PERMISSION (ID, NAME) VALUES
+ (1, 'create_profile'),
+ (2, 'read_profile'),
+ (3, 'update_profile'),
+ (4, 'delete_profile');
+
+ INSERT INTO role (ID, NAME) VALUES
+		(1, 'ROLE_admin'),(2, 'ROLE_user');
+
+ INSERT INTO PERMISSION_ROLE (PERMISSION_ID, ROLE_ID) VALUES
+     (1,1), /*create-> admin */
+     (2,1), /* read admin */
+     (3,1), /* update admin */
+     (4,1), /* delete admin */
+     (2,2),  /* read operator */
+     (3,2);  /* update operator */
+insert into users (id, user_name,password, email, enabled, accountNonExpired, credentialsNonExpired, accountNonLocked)
+    VALUES ('1', 'vivek','{bcrypt}$2a$10$su0SRLedQ5yJit3WCGhvJu.DJFdYFEZ0awhyYTSfEIzJSxD/dlqnG', 'admin@admin.com', '1', '1', '1', '1');
+ insert into  users (id, user_name,password, email, enabled, accountNonExpired, credentialsNonExpired, accountNonLocked)
+    VALUES ('2', 'user', '{bcrypt}$2a$10$JhbPqORocCMvOuldnf/o.OSy3Of8/AQKIenUUD8UmW5GgQ6G4oy/S','user@user.com', '1', '1', '1', '1');
+
+    INSERT INTO ROLE_USER (ROLE_ID, USER_ID)
+        VALUES
+        (1, 1) /* admin-admin */,
+        (2, 2) /* user-user */ ;

@@ -1,0 +1,33 @@
+server:
+  port: 9191
+
+spring:
+  application:
+    name: auth-server
+  datasource:
+    url: jdbc:sqlserver://localhost:1433;databaseName=authDB
+    username: sa
+    password: Vivekdb@1
+    driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
+    initialization-mode: always
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.SQLServer2012Dialect
+    show-sql: true
+    format-sql: true
+    hibernate:
+      ddl-auto: update
+
+eureka:
+  instance:
+    preferIpAddress: true
+  client:
+    registerWithEureka: true
+    fetchRegistry: true
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+
+logging:
+  level:
+    root: ERROR
